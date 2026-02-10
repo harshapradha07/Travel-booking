@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-booking-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: travel-booking
+  template:
+    metadata:
+      labels:
+        app: travel-booking
+    spec:
+      containers:
+      - name: travel-booking-container
+        image: harshapradha07/travel-booking-app:latest
+        ports:
+        - containerPort: 80
